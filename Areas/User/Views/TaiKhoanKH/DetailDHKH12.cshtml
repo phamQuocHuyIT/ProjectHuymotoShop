@@ -1,0 +1,39 @@
+﻿@model IEnumerable<doAnChuyenNghanh02.Models.CHITIET_DONTHANG>
+@{
+    ViewBag.Title = "DetailDH";
+    Layout = "~/Areas/User/Views/Shared/_LayoutAll.cshtml";
+}
+
+<h2 style="margin-top:10%">Chi tiết đơn hàng</h2>
+
+
+<div style="display: block; justify-content: center; margin-right: 20px">
+
+    <!--Bảng nhân viên-->
+    <table class="table" style="z-index:1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IDSP</td>
+                        <td>@item.SANPHAM.TENSP</td>
+                        <td>@item.SOLUONG</td>
+                        <td>@item.TONGTIEN</td>
+
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
+

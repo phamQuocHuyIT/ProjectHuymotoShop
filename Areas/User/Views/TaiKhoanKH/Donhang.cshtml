@@ -1,0 +1,38 @@
+﻿@model IEnumerable<doAnChuyenNghanh02.Models.DONHANG>
+@{
+    ViewBag.Title = "Donhang";
+    Layout = "~/Areas/User/Views/Shared/_LayoutAll.cshtml";
+}
+
+<h2 style="margin-top:10%">Danh sách đơn hàng</h2>
+
+
+<div style="display: block; justify-content: center; margin-right: 20px">
+
+    <!--Bảng nhân viên-->
+    <table class="table" style="z-index:1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ngày đặt</th>
+                <th>Trạng thái</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.IDDONHANG</td>
+                    <td>@item.NGAYDAT</td>
+                    <td>@item.TRANGTHAI</td>
+
+                    <td>
+                        <a class="btn btn-default" href="@Url.Action("DetailDHKH12", "TaiKhoanKH", new {iddh = item.IDDONHANG})">Chi Tiết</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Khung chi tiết nhân viên -->
